@@ -1,5 +1,6 @@
 package org.dolphinemu.dolphinemu.adapters;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.DataSetObserver;
 import android.graphics.Rect;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import org.dolphinemu.dolphinemu.R;
 import org.dolphinemu.dolphinemu.activities.EmulationActivity;
+import org.dolphinemu.dolphinemu.activities.GameDetailsActivity;
 import org.dolphinemu.dolphinemu.dialogs.GameDetailsDialog;
 import org.dolphinemu.dolphinemu.model.GameDatabase;
 import org.dolphinemu.dolphinemu.utils.Log;
@@ -223,16 +225,12 @@ public final class GameAdapter extends RecyclerView.Adapter<GameViewHolder> impl
 
 		// Get the ID of the game we want to look at.
 		// TODO This should be all we need to pass in, eventually.
-		// String gameId = (String) holder.gameId;
+		String gameId = (String) holder.gameId;
 
 		FragmentActivity activity = (FragmentActivity) view.getContext();
-		GameDetailsDialog.newInstance(holder.title,
-				holder.description,
-				holder.country,
-				holder.company,
-				holder.path,
-				holder.screenshotPath).show(activity.getSupportFragmentManager(), "game_details");
-
+		Intent intent = new Intent(activity, GameDetailsActivity.class);
+		intent.putExtra("GameID", gameId);
+		activity.startActivity(intent);
 		return true;
 	}
 

@@ -244,4 +244,10 @@
     <string name="header_controllers">Controllers</string>
 
     <string name="write_permission_needed">You need to allow write access to external storage for the emulator to work</string>
+    <string name="title_activity_game_details">GameDetailsActivity</string>
+    <string name="tab_text_1">Game Config</string>
+    <string name="tab_text_2">AR Codes</string>
+    <string name="tab_text_3">Gecko Codes</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Game ID: %1$s</string>
 </resources>
